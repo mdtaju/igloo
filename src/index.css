@@ -1,13 +1,45 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --colorPrimary: #0696e3;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .primary_btn {
+    @apply py-2 px-4 bg-[var(--colorPrimary)] text-white rounded-md font-medium active:scale-95 duration-150 cursor-pointer;
+  }
+  .primary_btn_light {
+    @apply py-2 px-4 bg-transparent border-2 border-white text-white rounded-md font-medium active:scale-95 duration-150 cursor-pointer;
+  }
+  .primary_btn_disabled {
+    @apply py-2 px-4 bg-gray-300 text-gray-800 rounded-md font-medium cursor-not-allowed;
+  }
+  .nav_link {
+    @apply cursor-pointer px-2 py-5 border-b-2 border-transparent hover:border-[var(--colorPrimary)] transition-all duration-200;
+  }
+  .nav_link_mobile {
+    @apply text-lg font-medium text-gray-700 p-2;
+  }
+  .primary_title {
+    @apply font-semibold text-4xl text-gray-800;
+  }
+  .primary_paragraph {
+    @apply text-sm font-semibold text-gray-600;
+  }
+  #header {
+    top: -100px;
+    transition: top 0.5s ease-in-out;
+  }
+
+  #header.sticky {
+    position: sticky;
+    top: 0;
+  }
+  .animate-spin {
+    animation: spin 2s linear infinite !important;
+  }
 }
