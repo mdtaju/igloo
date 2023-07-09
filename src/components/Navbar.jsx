@@ -1,34 +1,9 @@
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect } from 'react';
+import React from 'react';
 import Logo from "../assets/images/logo.png";
 
-let timeout
-let scroll = 0
-
 const Navbar = () => {
-      useEffect(() => {
-            window.onscroll = () => {
-                  if (timeout) {
-                        clearTimeout(timeout)
-                  }
-                  timeout = setTimeout(() => {
-                        // scroll >= window.scrollY && window.scrollY > 10
-                        // if (windowWidth.width ) {
-
-                        // }
-                        if (document.querySelector('#header')) {
-                              if (scroll >= window.scrollY || window.scrollY < 100) {
-                                    document.querySelector('#header').classList.add('sticky')
-                              } else {
-                                    document.querySelector('#header').classList.remove('sticky')
-                              }
-                        }
-
-                        scroll = window.scrollY
-                  }, 10)
-            }
-      }, [])
 
       return (
             <div id='header' className={`w-full h-fit bg-white top-0 shadow-sm z-40`}>
